@@ -1,23 +1,22 @@
-# Setup SSH Key Authentication from Windows to Ubuntu Server
+# Setup SSH Key Authentication from Windows and macOS to Ubuntu Server
 
-This guide will help you set up SSH key authentication from a Windows machine to an Ubuntu server, allowing you to connect without a password.
+This guide will help you set up SSH key authentication from a Windows or macOS machine to an Ubuntu server, allowing you to connect without a password.
 
-## Step 1: Generate an SSH Key on Windows
-1. Open **PowerShell** or **Git Bash** on Windows.
+## Step 1: Generate an SSH Key on Windows or macOS
+1. Open **PowerShell** (Windows) or **Terminal** (macOS).
 2. Generate an SSH key pair if you don’t already have one:
    ```sh
    ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
    ```
 3. Press **Enter** to save the key in the default location:
-   ```
-   C:\Users\YourUsername\.ssh\id_rsa
-   ```
+   - Windows: `C:\Users\YourUsername\.ssh\id_rsa`
+   - macOS: `~/.ssh/id_rsa`
 4. If prompted for a passphrase, press **Enter** (or set one for added security).
 
 ## Step 2: Copy the SSH Key to Your Ubuntu Server
 
 ### Option 1: Use `ssh-copy-id` (Recommended)
-If `ssh-copy-id` is installed on Windows, run:
+If `ssh-copy-id` is installed, run:
 ```sh
 ssh-copy-id -i ~/.ssh/id_rsa.pub user@your_ubuntu_server
 ```
@@ -25,7 +24,7 @@ ssh-copy-id -i ~/.ssh/id_rsa.pub user@your_ubuntu_server
 ### Option 2: Manually Copy the Key
 If `ssh-copy-id` isn’t available, do the following:
 
-1. **Display the SSH Public Key on Windows**:
+1. **Display the SSH Public Key**:
    ```sh
    cat ~/.ssh/id_rsa.pub
    ```
@@ -50,14 +49,18 @@ If `ssh-copy-id` isn’t available, do the following:
    ```
 
 ## Step 3: Test SSH Login Without Password
-On your Windows machine, try logging in:
+On your Windows or macOS machine, try logging in:
 ```sh
 ssh user@your_ubuntu_server
 ```
 If everything is set up correctly, you should be logged in without a password.
 
 ## (Optional) Step 4: Configure SSH for Easier Access
-Edit the SSH config file on Windows (`C:\Users\YourUsername\.ssh\config`):
+Edit the SSH config file:
+- **Windows**: `C:\Users\YourUsername\.ssh\config`
+- **macOS**: `~/.ssh/config`
+
+Add the following:
 ```sh
 Host ubuntu-server
     HostName your_ubuntu_server
