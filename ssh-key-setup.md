@@ -9,8 +9,8 @@ This guide will help you set up SSH key authentication from a Windows or macOS m
    ssh-keygen -t ed25519 -C "your_email@example.com"
    ```
 3. Press **Enter** to save the key in the default location:
-   - Windows: `C:\Users\YourUsername\.ssh\id_rsa`
-   - macOS: `~/.ssh/id_rsa`
+   - Windows: `C:\Users\YourUsername\.ssh\ed25519`
+   - macOS: `~/.ssh/ed25519`
 4. If prompted for a passphrase, press **Enter** (or set one for added security).
 
 ## Step 2: Copy the SSH Key to Your Ubuntu Server
@@ -18,7 +18,7 @@ This guide will help you set up SSH key authentication from a Windows or macOS m
 ### Option 1: Use `ssh-copy-id` (Recommended)
 If `ssh-copy-id` is installed, run:
 ```sh
-ssh-copy-id -i ~/.ssh/id_rsa.pub user@your_ubuntu_server
+ssh-copy-id -i ~/.ssh/ed25519.pub user@your_ubuntu_server
 ```
 
 ### Option 2: Manually Copy the Key
