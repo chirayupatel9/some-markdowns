@@ -6,7 +6,7 @@ This guide will help you set up SSH key authentication from a Windows or macOS m
 1. Open **PowerShell** (Windows) or **Terminal** (macOS).
 2. Generate an SSH key pair if you don’t already have one:
    ```sh
-   ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+   ssh-keygen -t ed25519 -C "your_email@example.com"
    ```
 3. Press **Enter** to save the key in the default location:
    - Windows: `C:\Users\YourUsername\.ssh\id_rsa`
