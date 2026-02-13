@@ -26,7 +26,7 @@ If `ssh-copy-id` isn’t available, do the following:
 
 1. **Display the SSH Public Key**:
    ```sh
-   cat ~/.ssh/id_rsa.pub
+   cat ~/.ssh/ed25519.pub
    ```
    Copy the output.
 
